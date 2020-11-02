@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/app_navigation"
+    app:startDestination="@id/contactListDestination">
+
+    <fragment
+        android:id="@+id/contactListDestination"
+        android:name="com.kyaw.contact.ui.view.ContactListFragment"
+        android:label="ContactListFragment"
+        tools:layout="@layout/fragment_contact_list">
+        <action
+            android:id="@+id/action_contactListFragment_to_contactDetailFragment"
+            app:destination="@id/contactDetailDestination" />
+        <action
+            android:id="@+id/action_contactListDestination_to_contactFormFragment"
+            app:destination="@id/contactFormFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/contactDetailDestination"
+        android:name="com.kyaw.contact.ui.view.ContactDetailFragment"
+        android:label="ContactDetailFragment"
+        tools:layout="@layout/fragment_contact_detail">
+        <action
+            android:id="@+id/action_contactDetailFragment_to_contactListFragment"
+            app:destination="@id/contactListDestination" />
+        <action
+            android:id="@+id/action_contactDetailDestination_to_contactFormFragment"
+            app:destination="@id/contactFormFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/contactFormFragment"
+        android:name="com.kyaw.contact.ui.view.ContactFormFragment"
+        android:label="ContactFormFragment"
+        tools:layout="@layout/fragment_contact_form">
+        <action
+            android:id="@+id/action_contactFormFragment_to_contactListDestination"
+            app:destination="@id/contactListDestination"
+            app:popUpTo="@id/contactListDestination"
+            app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_contactFormFragment_to_contactDetailDestination"
+            app:destination="@id/contactDetailDestination"
+            app:popUpTo="@id/contactDetailDestination"
+            app:popUpToInclusive="false">
+        </action>
+    </fragment>
+</navigation>
